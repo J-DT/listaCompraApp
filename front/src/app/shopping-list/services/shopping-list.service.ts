@@ -10,16 +10,24 @@ import {Item} from "../interfaces/item.interface";
 export class ShoppingListService {
   public items: Item[] = [{
     id: uuid(),
-    name: 'Pan',
-    amount: 1
+    name: 'pan',
+    amount: 1,
+    units:''
   },{
     id: uuid(),
-    name: 'Leche',
-    amount: 4
+    name: 'leche',
+    amount: 4,
+    units: 'cartones'
   },{
     id: uuid(),
-    name:'Harina',
-    amount:1
+    name:'harina',
+    amount:1,
+    units:'kg'
+  },{
+    id: uuid(),
+    name:'patatas',
+    amount:1,
+    units:'saco'
   }];
 
   addItem(item: Item):void{

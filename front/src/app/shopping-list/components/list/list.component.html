@@ -15,7 +15,10 @@
                  'list-group-item-danger': isLast}" >
     <div>
       <span class="text-primary"> {{i +1}}.  <span style="margin-right: 5px;"></span></span>
-      <span> {{ item.amount }} {{ item.units }} de {{ item.name }} </span>
+      <span *ngIf="item.amount !== 0 "> {{ item.amount }} </span>
+      <span>{{ item.units }} </span>
+      <span *ngIf="item.amount !== 0 && item.units !== ''">de </span>
+      <span>{{ item.name }} </span>
     </div>
 
     <button (click)="deleteItem(item.id)" class="btn btn-danger">X</button>
