@@ -37,6 +37,21 @@ export class ShoppingListService {
 
   };
 
+
+  getItemToEditById(id: string): Item[] {
+    console.log("Editing: ", this.items.find( item => item.id === id));
+    return this.items.filter( item => item.id === id);
+    // throw id;
+  }
+
+  editItem(item: Item):void{
+    const index: number = this.items.findIndex( editingItem => editingItem.id === item.id);
+    if (index !== -1) {
+      this.items[index]=item
+
+    }
+  }
+
   deleteItemById(id:string):void{
     console.log("Deleting: ", this.items.find( item => item.id === id));
     this.items = this.items.filter( item => item.id != id);

@@ -1,4 +1,4 @@
-<form class="row" (ngSubmit)="emitItem()">
+<form class="row">
   <h4 class="col-12">Añadir a la lista:</h4>
   <div class="col-12">
     <input type="text"
@@ -22,9 +22,14 @@
            placeholder="Unidades">
   </div>
   <div class="col-12">
-    <button class="btn btn-primary" style="width:100%">
+    <button *ngIf="!editionMode" (click)="emitNewItem()"class="btn btn-primary" style="width:100%">
       Agregar item
+    </button>
+    <button *ngIf="editionMode" (click)="emitEdittedItem()" class="btn btn-primary" style="width:100%">
+      Editar item
     </button>
   </div>
 </form>
+
+
 

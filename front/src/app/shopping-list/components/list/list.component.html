@@ -20,8 +20,11 @@
       <span *ngIf="item.amount !== 0 && item.units !== ''">de </span>
       <span>{{ item.name }} </span>
     </div>
+    <span>
+      <button (click)="openEditItem(item.id)" class="btn btn-warning" style="margin-right: 5px;">Editar</button>
+      <button (click)="deleteItem(item.id)" class="btn btn-danger">X</button>
+    </span>
 
-    <button (click)="deleteItem(item.id)" class="btn btn-danger">X</button>
 
 
   </li>

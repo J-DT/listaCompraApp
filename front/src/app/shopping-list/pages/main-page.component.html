@@ -3,12 +3,12 @@
 
 <div class="row">
   <div class="col-md-6 order-md-2 mb-md-0 mb-3">
-    <shopping-list-add-item (onNewItem)="onNewItem($event)"></shopping-list-add-item>
+    <shopping-list-add-item (onNewItem)="onNewItem($event)" [itemToEdit]="item" (onEditItem)="onEditItem($event)"></shopping-list-add-item>
   </div>
   <div class="col-md-6 order-md-1 mb-md-0 mb-3">
     <shopping-list-list [itemList]="items"
-              (onDeleteItem)="onDeleteItem($event)"></shopping-list-list>
+              (onDeleteItem)="onDeleteItem($event)"
+              (onOpenEditItem)="getItemToEditById($event)"></shopping-list-list>
   </div>
-
 
 </div>

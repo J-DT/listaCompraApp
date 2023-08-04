@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 import {Item} from "../../interfaces/item.interface";
 
@@ -9,17 +9,30 @@ import {Item} from "../../interfaces/item.interface";
 })
 
 export class AddItemComponent {
+
+  @Input()
+  public itemToEdit: Item = {
+    id:'',
+    name:'',
+    amount:0,
+    units:'',
+  };
+
   @Output()
   onNewItem: EventEmitter<Item> = new EventEmitter();
 
-  public item: Item ={
+  @Output()
+  onEditItem: EventEmitter<Item> = new EventEmitter();
+
+  public item: Item = {
     id:'',
     name:'',
     amount:0,
     units:'',
   }
+  public editionMode: boolean = false;
 
-  emitItem():void{
+  emitNewItem():void{
     console.log("Adding: ", {...this.item});
     if( this.item.name.length === 0) return;
 
@@ -27,4 +40,22 @@ export class AddItemComponent {
 
     this.item = {id: '', name:'', amount:0, units:''};
   }
+
+  ngOnChanges():void {
+    if (this.itemToEdit.name!='') {
+      this.item = { ...this.itemToEdit };
+      this.editionMode = true;
+    }
+  }
+
+  emitEdittedItem():void{
+    console.log("Implementing edition: ", {...this.item});
+    if( this.item.name.length === 0) return;
+
+    this.onEditItem.emit({...this.item});
+
+    this.item = {id: '', name:'', amount:0, units:''};
+    this.editionMode = false;
+  }
+
 }

@@ -11,13 +11,21 @@ export class ListComponent {
   @Input()
   public itemList: Item[] = [];
 
+
+  @Output()
+  onOpenEditItem: EventEmitter<string> = new EventEmitter();
+  openEditItem( id: string ):void{
+    this.onOpenEditItem.emit(id);
+  };
+
+
   @Output()
   onDeleteItem: EventEmitter<string> = new EventEmitter();
 
   deleteItem( id: string ):void{
     this.onDeleteItem.emit(id);
-
-
   };
+
+
 
 }
