@@ -1,0 +1,30 @@
+<form class="row" (ngSubmit)="emitItem()">
+  <h4 class="col-12">Añadir a la lista:</h4>
+  <div class="col-12">
+    <input type="text"
+           [(ngModel)]="item.name"
+           name="name"
+           class="form-control mb-2"
+           placeholder="Nombre">
+  </div>
+  <div class="col-6">
+    <input type="number"
+           [(ngModel)]="item.amount"
+           name="amount"
+           class="form-control mb-2"
+           placeholder="Cantidad">
+  </div>
+  <div class="col-6">
+    <input type="text"
+           [(ngModel)]="item.units"
+           name="uds"
+           class="form-control mb-2"
+           placeholder="Unidades">
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" style="width:100%">
+      Agregar item
+    </button>
+  </div>
+</form>
+

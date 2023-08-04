@@ -1,0 +1,25 @@
+
+<h4>Lista:</h4>
+
+<ul class="list-group">
+  <li *ngFor="let item of itemList;
+    let i = index;
+    let isFirst = first;
+    let isLast = last;
+    let isOdd = odd;
+    let isEven = even;
+
+    "class="list-group-item d-flex justify-content-between align-items-center"
+    [ngClass]="{ 'list-group-item-success': isFirst,
+                 'list-group-item-primary': isOdd,
+                 'list-group-item-danger': isLast}" >
+    <div>
+      <span class="text-primary"> {{i +1}}.  <span style="margin-right: 5px;"></span></span>
+      <span> {{ item.amount }} {{ item.units }} de {{ item.name }} </span>
+    </div>
+
+    <button (click)="deleteItem(item.id)" class="btn btn-danger">X</button>
+
+
+  </li>
+</ul>

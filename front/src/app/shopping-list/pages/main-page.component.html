@@ -1,0 +1,14 @@
+<h1>Lista de la compra</h1>
+<hr>
+
+<div class="row">
+  <div class="col-md-6 order-md-2 mb-md-0 mb-3">
+    <shopping-list-add-item (onNewItem)="onNewItem($event)"></shopping-list-add-item>
+  </div>
+  <div class="col-md-6 order-md-1 mb-md-0 mb-3">
+    <shopping-list-list [itemList]="items"
+              (onDeleteItem)="onDeleteItem($event)"></shopping-list-list>
+  </div>
+
+
+</div>
