@@ -1,5 +1,15 @@
-<form class="row">
-  <h4 class="col-12">Añadir a la lista:</h4>
+<form class="row" [ngClass]="{ 'edit-mode': editionMode }">
+  <div class="d-flex justify-content-between align-items-center w-100">
+    <h4>Añadir a la lista:</h4>
+    <div class="text-right">
+      <button *ngIf="editionMode" (click)="cancelEdition()" class="btn btn-danger center cancel-edit-button">
+        Cancelar edición
+      </button>
+    </div>
+  </div>
+
+
+
   <div class="col-12">
     <input type="text"
            [(ngModel)]="item.name"

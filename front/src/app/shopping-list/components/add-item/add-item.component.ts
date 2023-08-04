@@ -57,5 +57,9 @@ export class AddItemComponent {
     this.item = {id: '', name:'', amount:0, units:''};
     this.editionMode = false;
   }
+  cancelEdition():void{
+    this.item = {id: '', name:'', amount:0, units:''};
+    this.editionMode = false;
+  }
 
 }
